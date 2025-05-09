@@ -8,15 +8,36 @@ export default function AdharNumber() {
     const [adhar, setAdhar] = useState('');
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        if (/^\d{12}$/.test(adhar)) {
-            toast.success('OTP sent successfully!');
-            setTimeout(() => {
-                navigate('/enter-otp');
-            }, 2000);
-        } else {
+
+        if (!/^\d{12}$/.test(adhar)) {
             toast.error('Aadhaar number must be exactly 12 digits.');
+            return;
+        }
+
+        try {
+            const response = await fetch('http://localhost:3500/gov/v1/addhar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ addhar_number: adhar }),
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                toast.success('OTP sent successfully!');
+                setTimeout(() => {
+                    navigate('/enter-otp');
+                }, 2000);
+            } else {
+                toast.error(result.message || 'Failed to send OTP');
+            }
+        } catch (error) {
+            toast.error('Server error. Please try again later.');
+            console.error('Error:', error);
         }
     };
 

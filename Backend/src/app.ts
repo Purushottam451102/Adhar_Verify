@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import cors from "@fastify/cors";
 import { sequelize, checkDatabaseConnection } from "./plugins/sequelize";
 import formBodyPlugin from "@fastify/formbody";
-// import registerRoutes from "./routes";
+import registerRoutes from "./routes";
 
 
 dotenv.config();
@@ -27,7 +27,7 @@ app.get("/", async (request, reply) => {
   reply.send({ message: "Welcome to the ticketing-dev service" });
 });
 
-// app.register(registerRoutes);
+app.register(registerRoutes);
 app.register(formBodyPlugin);
 
 let port = Number(process.env.PORT) || 3500;
