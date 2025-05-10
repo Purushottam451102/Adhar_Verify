@@ -1,0 +1,58 @@
+.aadhaar-card {
+    width: 300px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: "Segoe UI", sans-serif;
+    position: relative;
+}
+
+.aadhaar-status {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.aadhaar-status-icon {
+    font-size: 32px;
+    color: #28a745;
+}
+
+.aadhaar-status-text {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-top: 5px;
+}
+
+.aadhaar-details {
+    margin-top: 10px;
+}
+
+.aadhaar-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.label {
+    font-weight: 500;
+    color: #666;
+}
+
+.value {
+    font-weight: 600;
+    color: #333;
+}
+
+.aadhaar-profile-image {
+    display: block;
+    width: 130px;
+    height: 130px;
+    border-radius: 20%;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    margin: 0 auto 10px auto; /* centers image and adds bottom margin */
+}

@@ -37,6 +37,7 @@ AddharModel.init(
 )
 
 sequelize.sync();
+AddharModel.sync({ alter: true });
 export default AddharModel;
 
 
